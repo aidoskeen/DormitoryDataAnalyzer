@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="DormitoryDataAnalyzer:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/DormitoryDataAnalyzer_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="DormitoryDataAnalyzer" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="DormitoryDataAnalyzer/web/Web" />
+    </root>
+  </artifact>
+</component>
