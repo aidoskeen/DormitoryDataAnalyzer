@@ -5,6 +5,24 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="DormitoryDataAnalyzer" />
+          <element id="jpa-descriptors" facet="DormitoryDataAnalyzer/jpa/JPA" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Hibernate 5.4.11-5.4.11" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.3.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.3.12" />
+          <element id="library" level="project" name="mysql.connector.j" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.3.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.3.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.3.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.3.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.3.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.3.12" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-crypto:5.5.3" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.5.3" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.9" />
+          <element id="library" level="project" name="antlr-2.7.7" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="DormitoryDataAnalyzer/web/Web" />
