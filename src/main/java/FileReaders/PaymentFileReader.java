@@ -32,7 +32,7 @@ public class PaymentFileReader {
                     case 0 -> payment.setPaymentType(cell.getStringCellValue());
                     case 1 -> payment.setPaymentMonth(cell.getStringCellValue());
                     case 2 -> payment.setPaymentMethod(cell.getStringCellValue());
-                    case 3 -> payment.setPaymentAmount(Long.parseLong(cell.getStringCellValue()));
+                    case 3 -> payment.setPaymentAmount((long)(cell.getNumericCellValue()));
                 }
             }
             paymentList.add(payment);

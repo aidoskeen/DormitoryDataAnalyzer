@@ -34,6 +34,7 @@ public class Main {
         System.out.println("Reading the file");
         List<Resident> residents = ResidentFileReader.getResidentsFromFile(
                 "C:\\Users\\aidos\\IdeaProjects\\DormitoryDataAnalyzer\\dormitory.xlsx");
+        System.out.println(residents.get(0).toString());
         List<Payment> payments = PaymentFileReader.getPaymentsFromFile(
                 "C:\\Users\\aidos\\IdeaProjects\\DormitoryDataAnalyzer\\dormitory.xlsx");
         payments.forEach( payment -> {
@@ -42,14 +43,14 @@ public class Main {
         );
 
         residents.forEach( resident -> {
-            //if (!residentExists(hibernateController, resident.getResidentId())) {
+            if (!residentExists(hibernateController, resident.getResidentId())) {
                 hibernateController.create(resident);
-           // }
+            }
         });
         payments.forEach(payment -> {
-                    //if (!paymentExists(paymentHibernateController, payment.getPaymentId())) {
+                    if (!paymentExists(paymentHibernateController, payment.getPaymentId())) {
                         paymentHibernateController.create(payment);
-                    //}
+                    }
                 }
 
         );

@@ -28,7 +28,7 @@ public class ResidentFileReader {
                     case 2 -> resident.setCountry(cell.getStringCellValue());
                     case 3 -> resident.setDormitory(cell.getStringCellValue());
                     case 4 -> resident.setRoom(cell.getStringCellValue());
-                    case 5 -> resident.setDebtAmount(Long.parseLong(cell.getStringCellValue()));
+                    case 5 -> resident.setDebtAmount((long)(cell.getNumericCellValue()));
                 }
             }
             residentList.add(resident);
