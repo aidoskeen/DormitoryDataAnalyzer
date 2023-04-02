@@ -1,3 +1,5 @@
+import FileReaders.PaymentFileReader;
+import FileReaders.ResidentFileReader;
 import Hibernate.PaymentHibernateController;
 import Hibernate.ResidentHibernateController;
 import Models.Payment;
@@ -6,8 +8,10 @@ import Models.Resident;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -20,56 +24,21 @@ public class Main {
         Payment payment = hibernateController.getPaymentById(id);
         return payment != null;
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
 
         System.out.println("Creating entity Manager Factory");
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("DormitoryDataAnalyzer");
         ResidentHibernateController hibernateController = new ResidentHibernateController(entityManagerFactory);
         PaymentHibernateController paymentHibernateController = new PaymentHibernateController(entityManagerFactory);
-
-        List<Resident> residents = List.of(
-                new Resident(
-                        "Aidos",
-                        "Alimkhan",
-                        "Kaz", "Vgtu",
-                        "803A",
-                        100L),
-                new Resident(
-                        "John",
-                        "Smith",
-                        "USA",
-                        "Vgtu",
-                        "803B",
-                        200L),
-                new Resident(
-                        "Jurgis",
-                        "Kazlauskas",
-                        "Lithuania",
-                        "Vgtu2",
-                        "803B",
-                        300L)
-
-        );
-        List<Payment> payments = List.of(
-                new Payment(
-                        residents.get(0),
-                        "rent",
-                        Month.MARCH.toString(),
-                        "Card",
-                200L),
-                new Payment(
-                        residents.get(1),
-                        "Deposit",
-                        Month.APRIL.toString(),
-                        "Post office",
-                        150L),
-                new Payment(
-                        residents.get(2),
-                        "Deposit",
-                        Month.APRIL.toString(),
-                        "Post office",
-                        150L)
-
+        System.out.println("Reading the file");
+        List<Resident> residents = ResidentFileReader.getResidentsFromFile(
+                "C:\\Users\\aidos\\IdeaProjects\\DormitoryDataAnalyzer\\dormitory.xlsx");
+        List<Payment> payments = PaymentFileReader.getPaymentsFromFile(
+                "C:\\Users\\aidos\\IdeaProjects\\DormitoryDataAnalyzer\\dormitory.xlsx");
+        payments.forEach( payment -> {
+                    payment.setResident(residents.get(payments.indexOf(payment)));
+                }
         );
 
         residents.forEach( resident -> {

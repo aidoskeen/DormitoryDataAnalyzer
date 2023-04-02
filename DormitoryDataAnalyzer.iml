@@ -68,5 +68,7 @@
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:5.5.3" level="project" />
     <orderEntry type="library" name="antlr-2.7.7" level="project" />
+    <orderEntry type="library" name="apache.poi" level="project" />
+    <orderEntry type="library" name="apache.poi.ooxml" level="project" />
   </component>
 </module>
